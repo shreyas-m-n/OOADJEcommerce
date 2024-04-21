@@ -37,7 +37,7 @@ public class BaseApi {
     public boolean canUserChange(HashMap<String, String> header) {
         var user = extractUser(header);
 
-        return user.isEmployee() || user.isManager();
+        return user.isEmployee() || user.isManager() || user.isCustomer();
     }
 
     public boolean isManager(HashMap<String, String> header) {

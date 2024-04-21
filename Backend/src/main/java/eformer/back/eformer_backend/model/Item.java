@@ -67,9 +67,9 @@ public class Item {
         this.cost = cost;
     }
 
-    public void setCost(Integer cost) {
-        setCost(cost.doubleValue());
-    }
+    // public void setCost(Integer cost) {
+    //     setCost(cost.doubleValue());
+    // }
 
     public String getName() {
         return name;
@@ -99,9 +99,9 @@ public class Item {
         this.unitPrice = unitPrice;
     }
 
-    public void setUnitPrice(Integer unitPrice) {
-        setUnitPrice(unitPrice.doubleValue());
-    }
+    // public void setUnitPrice(Integer unitPrice) {
+    //     setUnitPrice(unitPrice.doubleValue());
+    // }
 
     public Integer getItemId() {
         return itemId;

@@ -180,12 +180,16 @@ public class UsersApi extends BaseApi {
             @RequestHeader HashMap<String, String> header,
             @RequestBody User user
     ) {
+        System.out.println("Received user: " + user);
+        System.out.println("Received header: " + header);
         try {
             if (user == null || header == null) {
                 /* 422 */
+                System.out.println("Im in 422");
                 return new ResponseEntity<>("No user and/or invalid token", HttpStatus.UNPROCESSABLE_ENTITY);
             } else if (!isManager(header)) {
                 /* 403 */
+                System.out.println("Im in 403");
                 return new ResponseEntity<>("Sender not manager", HttpStatus.FORBIDDEN);
             }
 
@@ -193,6 +197,8 @@ public class UsersApi extends BaseApi {
 
             if (error.length() > 0) {
                 /* 422 */
+                System.out.println("Im in error.length 422");
+                System.out.println(error);
                 return new ResponseEntity<>(error.toString(), HttpStatus.UNPROCESSABLE_ENTITY);
             }
 
@@ -318,10 +324,15 @@ public class UsersApi extends BaseApi {
         try {
             if (header == null) {
                 /* 422 */
+                System.out.println("Im here in usersapi 422");
+
                 return new ResponseEntity<>("Missing sender or date fields",
                         HttpStatus.UNPROCESSABLE_ENTITY);
             } else if (!canUserChange(header)) {
                 /* 403 */
+                System.out.println("Im here in usersapi 403");
+                System.out.println("header is: " + header);
+
                 return new ResponseEntity<>("Sender is not a manager",
                         HttpStatus.FORBIDDEN);
             }
@@ -333,6 +344,8 @@ public class UsersApi extends BaseApi {
             );
         } catch (Exception e) {
             /* 400 */
+            System.out.println("Im here in usersapi 400");
+
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

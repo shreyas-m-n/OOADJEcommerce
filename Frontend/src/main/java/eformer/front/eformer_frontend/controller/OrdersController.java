@@ -484,6 +484,7 @@ public class OrdersController implements Initializable {
                 new JSONObject(),
                 userStringPair.getValue()))
         );
+        System.out.println("Im in btnCreateOrderAction");
 
         tblOrders.setItems(orders);
     }

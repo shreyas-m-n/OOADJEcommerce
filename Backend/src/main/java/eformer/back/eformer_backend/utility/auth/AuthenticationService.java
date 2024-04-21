@@ -58,9 +58,11 @@ public class AuthenticationService {
             )
         );
 
-        var user = userManager.findByUsername(request.getUsername()).orElseThrow(
+        var user = userManager.findByUsername(request.getUsername()).orElseThrow
+        (
                 () -> new UsernameNotFoundException(request.getUsername() + " not found")
         );
+        System.out.println("Authentication service completed");
 
         return new AuthenticationResponse(tokenService.generateToken(user));
     }

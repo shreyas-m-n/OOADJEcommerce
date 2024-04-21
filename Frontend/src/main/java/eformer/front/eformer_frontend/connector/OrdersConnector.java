@@ -256,6 +256,7 @@ public class OrdersConnector extends RequestsGateway {
                                String note) {
         try {
             var body = new JSONObject();
+            System.out.println("im in ordersConnector i got customerId as " + customerId + " items=" + items + " note: " + note);
 
             body.put("items", items);
             body.put("customerId", customerId);
